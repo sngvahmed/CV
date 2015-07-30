@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-md-8">
+
+        <ul>
+            <li ng-repeat="article in articles | filter:query | orderBy:orderProp">
+                <h1><a href="#/articles/{{article.id}}">{{article.Article_header}}</a></h1>
+                </h2>{{article.age}}</h2>
+                </h4>{{article.article_info}}</h4>
+            </li>
+        </ul>
+
+    </div>
+    <div class="col-md-4">
+        Search  :: <input ng-model="query"></br>
+        SortBy  ::
+         <select ng-model="orderProp">
+            <option value = "name"> Alphabetical </option>
+            <option value = "age"> Newest </option>
+        </select>
+    </div>
+</div>

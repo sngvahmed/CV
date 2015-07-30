@@ -1,0 +1,38 @@
+'use strict';
+
+var cvControllers = angular.module ('MainArticle' , []);
+
+cvControllers.controllers('MainArticle' , ['$scope' , '$http'] , function($scope , $http){
+    $http.get('Article/article.json').success(function(data){
+        $scope.articles = data;
+    });
+    $scope.orderProp = 'age';
+});
+
+cvControllers.controllers('MainArticle' , ['$scope' , '$http'] , function($scope , $http){
+       $scope.articleId = $routeParams.articleId;
+});
+
+
+/**
+ * Created by sngv on 06/09/14.
+ */
+'use strict';
+
+var loginControoler = angular.module ('cvController' , []);
+
+loginControoler.controller('loginController', ['$scope', function($scope) {
+    $scope.formInfo = {};
+    $scope.saveData = function() {
+        $scope.emailRequired = '';
+        $scope.passwordRequired = '';
+
+        if (!$scope.formInfo.Email) {
+            $scope.emailRequired = 'Email Required';
+        }
+
+        if (!$scope.formInfo.Password) {
+            $scope.passwordRequired = 'Password Required';
+        }
+    };
+}]).controller('loginController', [function() {}]);
